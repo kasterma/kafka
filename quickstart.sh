@@ -20,7 +20,7 @@ echo "Launching minimesos cluster..."
 minimesos up
 
 echo "Exporting minimesos environment variables..."
-$(minimesos)
+eval $(minimesos| grep export)
 
 MASTER_HOST_PORT=$(echo $MINIMESOS_MASTER | cut -d/ -f3)
 
