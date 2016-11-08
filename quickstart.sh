@@ -45,6 +45,7 @@ echo "Mesos Kafka API is available..."
 echo "Adding broker 0..."
 cd /tmp
 ./kafka-mesos.sh broker add 0
+./kafka-mesos.sh broker update 0 --mem 100 -heap 100
 cd - 2>&1 > /dev/null
 
 echo "Starting broker 0..."
