@@ -34,7 +34,7 @@ EOF
 
 echo "Installing Mesos Kafka..."
 ZK_HOST_PORT=$(echo $MINIMESOS_ZOOKEEPER | cut -d/ -f3)
-docker run -d -p 7000:7000 `whoami`/kafka-mesos --master=$MINIMESOS_ZOOKEEPER/mesos --api=http://$IP:7000 --zk=$ZK_HOST_PORT 2>&1 > /dev/null
+docker run -d -p 7000:7000 `whoami`/kafka-mesos scheduler --master=$MINIMESOS_ZOOKEEPER --api=http://$IP:7000 --zk=$ZK_HOST_PORT 2>&1 > /dev/null
 
 echo "Wait until Mesos Kafka API is available..."
 while ! nc -z $IP 7000; do   
