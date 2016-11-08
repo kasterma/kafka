@@ -27,7 +27,7 @@ MASTER_HOST_PORT=$(echo $MINIMESOS_MASTER | cut -d/ -f3)
 echo "Creating kafka-mesos.properties file in /tmp..."
 cat << EOF > /tmp/kafka-mesos.properties
 storage=file:kafka-mesos.json
-master=$MINIMESOS_ZOOKEEPER/mesos
+master=$MINIMESOS_ZOOKEEPER
 zk=$MASTER_HOST_PORT
 api=http://$IP:7000
 EOF
